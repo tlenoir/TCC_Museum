@@ -16,13 +16,16 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SQLite } from '@ionic-native/sqlite';
 
+import { WelcomePage } from './../pages/welcome/welcome';
+
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    WelcomePage
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { SQLite } from '@ionic-native/sqlite';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    WelcomePage
   ],
   providers: [
     StatusBar,
