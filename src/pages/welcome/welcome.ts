@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Platform } from 'ionic-angular';
 
 // add plus+ here
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
@@ -23,9 +23,13 @@ export class WelcomePage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private sqlite: SQLite) {
+    private sqlite: SQLite,
+    private platform: Platform) {
 
-    this.initDB();
+    this.platform.ready().then(() => {
+      this.initDB();
+    })
+
   }
 
 
@@ -51,15 +55,13 @@ export class WelcomePage {
     this.data.executeSql('CREATE TABLE IF NOT EXISTS oeuvres (id INTEGER PRIMARY KEY, lastname TEXT, firstname TEXT, image TEXT, code INTEGER, checked INTEGER)', {})
       .then(() => {
         console.log('Executed SQL');
-        let totalOeuvres = this.checkOeuvresExits();
+        this.checkOeuvresExits().then((data) => {
+          let totalOeuvres = data;
+          console.log('totalOeuvres', totalOeuvres);
 
-        if (totalOeuvres == 21) {
-          this.redirectToTabs();
-        } else {
-          
-        
-        this.insertOeuvresData();
-      }
+          if (totalOeuvres == 21) this.redirectToTabs();
+          else this.insertOeuvresData();
+        })
       })
       .catch(e => console.log(e));
 
@@ -70,7 +72,16 @@ export class WelcomePage {
     return this.data.executeSql('SELECT * FROM oeuvres', {})
       .then((data) => {
         console.log("checkOeuvresExits");
-        return data.rows.lenght;
+        return data.rows.length;
+      })
+      .catch(e => console.log(e));
+
+  }
+  dropOeuvresTable(): any {
+
+    return this.data.executeSql('DROP TABLE oeuvres', {})
+      .then((data) => {
+        console.log('DROPPED');
       })
       .catch(e => console.log(e));
 
@@ -113,7 +124,7 @@ export class WelcomePage {
   }
   // is progressbar
   redirectToTabs() {
-    let limit = 10;
+    let limit = 3;
     let counter = 0;
     let myInterval = setInterval(() => {
       counter++;

@@ -14,5 +14,9 @@ page-welcome {
         -webkit-transition: width 2s; /* Safari */
         transition: width 2s;
     }
+    .loading{
+        width: 0 auto;
+        margin-top: 10px;
+    }
 }
 

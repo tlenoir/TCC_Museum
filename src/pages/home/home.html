@@ -1,17 +1,31 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="dying">
+    <ion-title>
+
+      Bro' Cool?
+      <div class="checked">{{totalChecked}}/{{totalOeuvres}}
+
+      </div>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-card *ngFor="let xyz of oeuvres">
+    <div style="position: relative;">
+      <img src="../../assets/imgs/oeuvres/{{ xyz.image }}">
+      <ion-fab right top *ngIf="xyz.checked">
+        <button ion-fab color="dying">
+          <ion-icon name="star"></ion-icon>
+        </button>
+      </ion-fab>
+    </div>
+
+    <ion-item>
+      <ion-icon name="person" item-start large></ion-icon>
+      <h2>{{ xyz.lastname}} {{ xyz.firstname}}</h2>
+      <ion-badge color="dying">{{ xyz.code }}</ion-badge>
+    </ion-item>
+
+  </ion-card>
 </ion-content>
