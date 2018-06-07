@@ -1,3 +1,18 @@
 page-welcome {
 
+    #progressbar {
+        background-color: rgba(214, 121, 0, 0.562);
+        border-radius: 13px; /* (height of inner div) / 2 + padding */
+        padding: 3px;
+    }
+    #progressbar > div {
+        background-color: rgb(86, 43, 241);
+        width: 0%; /* Adjust with JavaScript */
+        height: 10px;
+        border-radius: 10px;
+        transition-timing-function: ease;
+        -webkit-transition: width 2s; /* Safari */
+        transition: width 2s;
+    }
 }
+
