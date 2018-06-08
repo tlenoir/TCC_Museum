@@ -40,8 +40,10 @@ export class HomePage {
         db.executeSql('SELECT * FROM oeuvres', {})
           .then((data) => {
             this.totalOeuvres = data.rows.length;
+            this.totalChecked = 0;
             for (let i = 0; i < data.rows.length; i++) {
               this.oeuvres.push(data.rows.item(i));
+              
               if (data.rows.item(i).checked == 1) this.totalChecked++;
 
             }
