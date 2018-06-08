@@ -30,11 +30,17 @@ export class TabsPage {
     this.bCs.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
 
+      
       this.updateChecked(barcodeData.text);
+      
 
 
     }).catch(err => {
       console.log('Error', err);
+
+      
+
+
     });
 
   }

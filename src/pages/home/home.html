@@ -13,7 +13,7 @@
 <ion-content padding>
   <ion-card *ngFor="let xyz of oeuvres">
     <div style="position: relative;">
-      <img src="../../assets/imgs/oeuvres/{{ xyz.image }}">
+      <img src="/assets/imgs/oeuvres/{{ xyz.image }}">
       <ion-fab right top *ngIf="xyz.checked">
         <button ion-fab color="dying">
           <ion-icon name="star"></ion-icon>
