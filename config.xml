@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="tccmuseum.tcc.com" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MusOeuvre TCC</name>
+    <name>MusOeuvre</name>
     <description>A TCC MOBILE PROJECT</description>
     <author email="tlenoir.tcc@gmail.com" href="http://ionicframework.com/">LENOIR Tetuaoro - TCC</author>
     <content src="index.html" />

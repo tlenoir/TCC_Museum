@@ -27,7 +27,8 @@ export class TabsPage {
 
   scanBro() {
     console.log("scan ready");
-    this.bCs.scan().then(barcodeData => {
+    this.bCs.scan()
+    .then(barcodeData => {
       console.log('Barcode data', barcodeData);
 
       
